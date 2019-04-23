@@ -6,16 +6,17 @@
       <div fxLayout="row" fxLayout.xs="column">
         <div fxLayout="row" fxFlex class="input-container">
           <mat-form-field fxFlex class="example-full-width">
-            <input [(ngModel)]="initialValue" mask="comma_separator.4" name="initialValue" matInput
+            <input [(ngModel)]="initialValue" prefix="€ " mask="comma_separator.4" name="initialValue" matInput
               placeholder="Ingrese el valor">
           </mat-form-field>
         </div>
 
         <div fxLayout="row" fxFlex class="input-container">
           <mat-form-field fxFlex class="example-full-width">
-            <input [disabled]="true" [(ngModel)]="resultValue" mask="comma_separator.4" name="resultValue" matInput
+            <input [disabled]="true" [(ngModel)]="resultValue" prefix="$ " mask="comma_separator.4" name="resultValue" matInput
               placeholder="El resultado es:">
           </mat-form-field>
+          
         </div>
       </div>
 
