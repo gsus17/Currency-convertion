@@ -6,7 +6,7 @@ import { ManagerService } from './manager.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
 
   /**
    * Valor inicial a calcular.
@@ -24,7 +24,7 @@ export class AppComponent {
   public currencyConvertion: string = 'USD';
 
   constructor(private managerService: ManagerService) {
-
+    console.log(`${ManagerService.name}::ctor`);
   }
 
   /**
@@ -33,5 +33,12 @@ export class AppComponent {
   public calculate(): void {
     const currentConvertion = this.managerService.getCurrentConvertion(this.currencyConvertion);
     this.resultValue = this.initialValue * currentConvertion;
+  }
+
+  /**
+   * Detiene el proceso se actualizacion.
+   */
+  public ngOnDestroy() {
+    this.managerService.stopIntervalLoop();
   }
 }

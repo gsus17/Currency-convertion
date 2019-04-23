@@ -6,7 +6,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ApiWrapperService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    console.log(`${ApiWrapperService.name}::ctor`);
+   }
 
   /**
    * Api request.
